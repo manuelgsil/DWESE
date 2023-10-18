@@ -34,6 +34,8 @@ function dividir($a, $b) // no se me ocurre una forma de reducir esto. *Pregunta
     return $resultado;
 }
 
+$resultado="";
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $valor1 = $_POST["valor1"];
     $valor2 = $_POST["valor2"];
