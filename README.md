@@ -1,22 +1,24 @@
+# Desarrollo Web en Entorno Servidor (DWES)
 
-# Entorno Servidor
+Bienvenido al repositorio de DWES, donde compartimos una variedad de ejercicios y proyectos relacionados con el desarrollo web en entorno servidor. En este curso, nos centramos en el uso de tecnologías y lenguajes como PHP, HTML, CSS y JavaScript para crear aplicaciones web robustas y eficientes en el lado del servidor.
 
-Repositorio en el que iremos subiendo los distintos ejercicios de DWES
+## ¿Qué es DWES?
 
-Principalmente se trabaja con PHP, aunque iremos incorporando distintas funcionalidades a los proyectos, que implicaran tanto el uso de **HTML Y CSS** como **JS**. 
+El Desarrollo Web en Entorno Servidor (DWES) es una disciplina dentro del desarrollo web que se enfoca en la creación y gestión de la lógica y la funcionalidad de una aplicación web en el servidor. Esto implica el procesamiento de datos, la interacción con bases de datos, la autenticación de usuarios y la generación de contenido dinámico. En esencia, DWES se ocupa de todo lo que sucede detrás de escena en una aplicación web.
 
-Se prioriza un uso *robusto* de lógicas de backend por lo que haremos hincapié en un desarrollo seguro y eficiente. Sin embargo, dado que estamos en una fase de aprendizaje, agradecemos cualquier comentario o sugerencia para mejorar nuestro codigo.
+## Contenido del Repositorio
+
+En este repositorio, compartimos una variedad de ejercicios y proyectos que exploran los fundamentos y las mejores prácticas del desarrollo web en entorno servidor. Principalmente trabajamos con PHP, pero también incorporamos funcionalidades que involucran HTML, CSS y JavaScript para crear aplicaciones web completas.
+
+Principalmente se trabaja con PHP, aunque iremos incorporando distintas funcionalidades a los proyectos, que implicarán tanto el uso de **HTML Y CSS** como **JS**. 
+
+Se prioriza un uso *robusto* de lógicas de backend por lo que haremos hincapié en un desarrollo seguro y eficiente. Sin embargo, dado que estamos en una fase de aprendizaje, agradecemos cualquier comentario o sugerencia para mejorar nuestro código.
+
 
 ![prueba](https://github.com/manuelgsil/manuelgsil/assets/118306123/d15e0502-7dff-41d9-b3db-e1910bcad346)
 
 
-
-
-
-
-
-
-### Desarrollo constante
+## Desarrollo constante
 
 Actualizaremos, en la medida de lo posible, nuestro **readme** con lo más llamativo de los últimos ejercicios.
 
@@ -37,4 +39,4 @@ El uso de "flags" o indicadores se considera una buena práctica en programació
 
 - Flexibilidad: Los indicadores proporcionan flexibilidad al permitirte controlar el comportamiento de la aplicación sin tener que modificar el código en profundidad. Esto es especialmente útil en situaciones en las que deseas ajustar el comportamiento de la aplicación sin cambiar su estructura principal.
 
-Sin embargo, es importante utilizar flags con moderación y de manera organizada. Un uso excesivo de flags puede llevar a un código complicado y difícil de mantener. Por lo tanto, es fundamental equilibrar la simplicidad y la legibilidad del código con la necesidad de tener control sobre el comportamiento de la aplicación.
+Es importante utilizar flags con moderación y de manera organizada. Un uso excesivo de flags puede llevar a un código complicado y difícil de mantener. Por lo tanto, es fundamental equilibrar la simplicidad y la legibilidad del código con la necesidad de tener control sobre el comportamiento.
