@@ -8,9 +8,7 @@ El Desarrollo Web en Entorno Servidor (DWES) es una disciplina dentro del desarr
 
 ## Contenido del Repositorio
 
-En este repositorio, compartimos una variedad de ejercicios y proyectos que exploran los fundamentos y las mejores prácticas del desarrollo web en entorno servidor. Principalmente trabajamos con PHP, pero también incorporamos funcionalidades que involucran HTML, CSS y JavaScript para crear aplicaciones web completas.
-
-Principalmente se trabaja con PHP, aunque iremos incorporando distintas funcionalidades a los proyectos, que implicarán tanto el uso de **HTML Y CSS** como **JS**. 
+En este repositorio, compartimos una variedad de ejercicios y proyectos que exploran los fundamentos y las mejores prácticas del desarrollo web en entorno servidor. Principalmente se trabaja con PHP, aunque iremos incorporando distintas funcionalidades a los proyectos, que implicarán tanto el uso de **HTML Y CSS** como **JS**. 
 
 Se prioriza un uso *robusto* de lógicas de backend por lo que haremos hincapié en un desarrollo seguro y eficiente. Sin embargo, dado que estamos en una fase de aprendizaje, agradecemos cualquier comentario o sugerencia para mejorar nuestro código.
 
