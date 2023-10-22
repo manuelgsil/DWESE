@@ -1,0 +1,29 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: blanchedalmond;
+    display: flex;
+    justify-content: center;
+    /* Centra horizontalmente en la página */
+    align-items: center;
+    /* Centra verticalmente en la página */
+    height: 100vh;
+    /* Establece la altura del body al 100% del viewport height */
+    gap: 40px;
+}
+
+
+.piramide {
+    border: 1px solid black;
+    color: rgb(168, 20, 168);
+}
+
+form {
+    display: grid;
+}
+button:hover{
+    background-color: burlywood;
+}
