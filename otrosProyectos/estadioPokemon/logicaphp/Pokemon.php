@@ -232,7 +232,15 @@ class Pokemon
 
         echo '</table>';
     }
+
+    public static function pokemonAleatorio($pokemonList)
+    {
+        $indiceAleatorio = array_rand($pokemonList);
+        $pokemonAleatorio = $pokemonList[$indiceAleatorio];
+        echo '<td>' . $pokemonAleatorio->getName() . '</td>';
+        echo '<td>' . $pokemonAleatorio->getTotal() . '</td>';
+        echo '<td><img src="' . $pokemonAleatorio->getSpriteUrl() . '" width="50" height="50"></td>';
+        
+        return $pokemonAleatorio;
+    }
 };
-
-
-
