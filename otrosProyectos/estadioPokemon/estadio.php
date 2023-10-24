@@ -11,56 +11,56 @@ $arrayPokemons = unserialize($serializedPokemons);
  */
 
 
+function generarPokemon($arrayPokemons)
+{
+    for ($fila = 0; $fila < 4; $fila++) {
+        echo "<tr>";
+        for ($columna = 0; $columna < 5; $columna++) {
+            $pokemon = $arrayPokemons[array_rand($arrayPokemons)];
+            echo '<td><img src="' . $pokemon->getSpriteUrl() . '"></td>';
+        }
+        echo "</tr>";
+
+    }
+}
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <title>Estadio Pokémon</title>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <title>Estadio</title>
+    <link rel="stylesheet"
+          href="style.css">
 </head>
 
 <body>
-    <h1>Estadio Pokémon</h1>
+    <div>
+        <table border="1">
+            <thead>
+                <td colspan="5">ESTADIO POKEMON</td>
+            </thead>
+            <tbody>
+                <?php generarPokemon($arrayPokemons); ?>
+            </tbody>
+            <tfoot>
+                <td colspan="5"> TENGO SUEÑO</td>
+            </tfoot>
+        </table>
+    </div>
+    <input type="reset"
+           value="resetear"
+           onclick="resetearFuncion()">
+</body>
 
-    <table border="1">
-        <thead>
-            <td colspan="5">ESTADIO POKEMON</td>
-        </thead>
-        <tbody>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-        </tbody>
-        <tfoot>
-            <td colspan="5"> TENGO SUEÑO</td>
-        </tfoot>
-    </table>
+<script>
+    function resetearFuncion() {
+        location.reload(); // Recargar la página
+    }
+</script>
 </body>
 
 </html>
