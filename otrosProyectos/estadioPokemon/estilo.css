@@ -1,0 +1,23 @@
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+table td {
+    width: 100px;
+    height: 70px;
+    empty-cells: show;
+    
+}
+
+th{
+    width: 100%;
+}
+
+tfoot{
+width: 100%;
+text-align: center;
+}
