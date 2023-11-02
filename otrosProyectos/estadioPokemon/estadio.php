@@ -11,30 +11,26 @@ $arrayPokemons = unserialize($serializedPokemons);
  */
 
 
+
 function generarPokemon($arrayPokemons)
 {
-    $totalCeldas = 20; // Número total de celdas en tu tabla
-    $numCeldasLlenas = rand(1, $totalCeldas); // Genera un número aleatorio de celdas a llenar
+    $totalCeldas = 20;
+    $numCeldasLlenas = rand(1, $totalCeldas); /* Se me sale del indice del array */
+    $indicesAleatorios = array_rand(range(0, $totalCeldas - 1), $numCeldasLlenas);
 
     for ($fila = 0; $fila < 4; $fila++) {
         echo "<tr>";
         for ($columna = 0; $columna < 5; $columna++) {
-
-            echo "<td>";
-            if ($numCeldasLlenas > 0) {
-                $pokemon = $arrayPokemons[array_rand($arrayPokemons)];
-                echo '<img src="' . $pokemon->getSpriteUrl() . '">';
-                $numCeldasLlenas--;
-            }
-            echo "</td>";
-
-            /*  $pokemon = $arrayPokemons[array_rand($arrayPokemons)];
-             echo '<td><img src="' . $pokemon->getSpriteUrl() . '"></td>';
-             
+            /*  Para calcular el índice de una celda en una matriz bidimensional,
+             se puede utilizar la siguiente fórmula: índice = (fila * número_de_columnas) + columna 
              */
+            echo "<td>";
+            echo in_array(($fila * 5) + $columna, $indicesAleatorios) ?
+                '<img src="' . $arrayPokemons[array_rand($arrayPokemons)]->getSpriteUrl() . '">'
+                : '';
+            echo "</td>";
         }
         echo "</tr>";
-
     }
 }
 ?>

@@ -27,10 +27,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $tamanio = count($array);
 
         for ($i = 0; $i < $tamanio; $i++) {
-            for ($j = 0; $j < $tamanio - $i - 1; $j++) { /* Voy comprobando la posicion inmediatamente posterior hasta llegar la final */
-                if ($array[$j] > $array[$j + 1]) {
-                    $variableAuxiliar = $array[$j];
-                    $array[$j] = $array[$j + 1];
+            for ($j = 0; $j < $tamanio - $i - 1; $j++) { /*las iteraciones se calculan segun el tamaño y -1*/
+                if ($array[$j] > $array[$j + 1]) { /* Va comparandose con la posicion posterior */
+                    $variableAuxiliar = $array[$j]; /* Y volvemos a usar una variable auxiliar para para almacenar los datos que nos interesan */
+                    $array[$j] = $array[$j + 1]; 
                     $array[$j + 1] = $variableAuxiliar;
                 }
             }
@@ -44,8 +44,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     echo "<br>";
 
-    echo "Array ordenado: ";
-    $arrayOrdenado = ordenacionDirecta($array);
+    echo "Array intercambio: ";
+    $arrayOrdenado = ordenacionIntercambio($array);
     foreach ($arrayOrdenado as $elemento) {
         echo $elemento . " ";
     }
