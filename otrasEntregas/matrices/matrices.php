@@ -58,13 +58,11 @@
         $tipoOperacion = $_POST["operacion"];
         switch ($tipoOperacion) {
             case 'suma':
-                $resultado = sumaMatriz($matriz1);
-                $resultado += sumaMatriz($matriz2);
+                $resultado = sumaMatriz($matriz1) + sumaMatriz($matriz2);
                 echo $resultado;
                 break;
             case 'multiplicacion':
-                $resultado = multiplicarMatriz($matriz1);
-                $resultado += multiplicarMatriz($matriz2);
+                $resultado = multiplicarMatriz($matriz1) * multiplicarMatriz($matriz2);
                 echo $resultado;
                 break;
             default:
@@ -85,10 +83,10 @@
     
     function multiplicarMatriz($matriz1)
     {
-        $sumatorio = 1; // Inicializar en 1 en lugar de 0 para multiplicación
+        $sumatorio = 1; // Inicializar en 1 
         foreach ($matriz1 as $fila) {
             foreach ($fila as $elemento) {
-                $sumatorio *= $elemento; // Acumular la multiplicación en lugar de multiplicar directamente
+                $sumatorio *= $elemento; // Acumul
             }
         }
         return $sumatorio;
