@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
     <title>Ejercicio 3</title>
 </head>
 <style>
@@ -68,16 +70,12 @@
         background-color: #45a049;
     }
 </style>
-
-</style>
-
 <body>
     <pre>
         Introduce un numero al azar (entre 1-12) para obtener
         su equivalencia en mes los idiomas
         ingles, frances y aleman.
-        Si desea que el mes sea aleatorio 
-        introduzca 0 
+    
 
         Si quieres que se genere un mes aleatorio en frances,
         introduce 666
@@ -86,14 +84,15 @@
     <form method="post">
         <div>
             <label for="mesAzar">Inserte un mes</label>
-            <input type="number" name="mesAzar">
+            <input type="number"
+                   name="mesAzar">
         </div>
     </form>
 
     <table>
         <th colspan="4">Traduccion de meses a distintos idiomas</th>
         <tbody>
-            <?php cargarDatos()  ?>
+            <?php cargarDatos() ?>
         </tbody>
     </table>
 
@@ -116,10 +115,10 @@
     function mostrarTabla($mesAzar, $arrayMeses)
     {
         $html = "<tr>"; // creamos una variable para almacenar la estructura de tablas en html
-        $mesAzarValido1 = $mesAzar > 0 && $mesAzar < 13; // Comprobamos si esta dentro de los meses 1 - 12. Devuelve true o false
-        $mesAleatorioFrances = $mesAzar == 665;
-
-        if ($mesAzarValido1) {
+        $mesAzarValido = $mesAzar >= 0 && $mesAzar <= 11; // Comprobamos si esta dentro de los meses 1 - 12. Devuelve true o false
+        $mesAleatorioFrances = $mesAzar == 665; // -1 a la opcion indicada
+    
+        if ($mesAzarValido) {
             $html .= "<th>Español</th>";
             $html .= "<th>Ingles</th>";
             $html .= "<th>Frances</th>";
@@ -141,7 +140,8 @@
         } else {
             echo "introduzca un numero valido";
         }
-    };
+    }
+    ;
     ?>
 </body>
 

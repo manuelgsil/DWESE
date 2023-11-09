@@ -1,3 +1,5 @@
+<!-- ESTÁ POR TERMINAR. Planteo hacerlo de dos modos. -->
+
 <?php
 
 $lineaMetro1 = array(

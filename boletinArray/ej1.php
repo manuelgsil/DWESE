@@ -58,13 +58,12 @@ $tabla2 = array(
 
 function imprimirTabla($tabla)
 { {
-        for ($i = 0; $i < count($tabla); $i++) {
-            print "<tr>" .
-                "<td>" . $tabla[$i] . "</td>" .
-                "<td>" . $tabla[$i + 1] . "</td>" .
-                "</tr>";
-            $i++; // lo sumamos para que no se salga del rango
-        }
+    for ($i = 0; $i < count($tabla); $i += 2) { // vamos de dos en dos
+        print "<tr>" .
+            "<td>" . $tabla[$i] . "</td>" .
+            "<td>" . $tabla[$i + 1] . "</td>" .
+            "</tr>";
+    }
     }
 }
 
@@ -96,6 +95,7 @@ $unionTablas = array_merge($tabla1, $tabla2); // con esta funcion creamos la uni
         <?php echo imprimirTabla($tabla2); ?>
         </tbody>
     </table> -->
+
     <!-- 
     <table>
         <thead>
