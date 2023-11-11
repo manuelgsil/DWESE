@@ -3,8 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ejercicio 3</title>
 </head>
 <style>
@@ -70,6 +69,7 @@
         background-color: #45a049;
     }
 </style>
+
 <body>
     <pre>
         Introduce un numero al azar (entre 1-12) para obtener
@@ -84,15 +84,17 @@
     <form method="post">
         <div>
             <label for="mesAzar">Inserte un mes</label>
-            <input type="number"
-                   name="mesAzar">
+            <input type="number" name="mesAzar">
         </div>
     </form>
 
     <table>
         <th colspan="4">Traduccion de meses a distintos idiomas</th>
         <tbody>
-            <?php cargarDatos() ?>
+            <?php if ($_SERVER["REQUEST_METHOD"] == "POST") : ?>
+                <?php echo cargarDatos() ?>
+            <?php endif; ?>
+
         </tbody>
     </table>
 
@@ -110,6 +112,7 @@
             ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"],
             ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"]
         ];
+
         mostrarTabla($mesAzar, $arrayMeses);
     }
     function mostrarTabla($mesAzar, $arrayMeses)
@@ -117,7 +120,7 @@
         $html = "<tr>"; // creamos una variable para almacenar la estructura de tablas en html
         $mesAzarValido = $mesAzar >= 0 && $mesAzar <= 11; // Comprobamos si esta dentro de los meses 1 - 12. Devuelve true o false
         $mesAleatorioFrances = $mesAzar == 665; // -1 a la opcion indicada
-    
+
         if ($mesAzarValido) {
             $html .= "<th>Español</th>";
             $html .= "<th>Ingles</th>";
@@ -140,8 +143,7 @@
         } else {
             echo "introduzca un numero valido";
         }
-    }
-    ;
+    };
     ?>
 </body>
 
