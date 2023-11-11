@@ -1,5 +1,3 @@
-<!-- ESTÁ POR TERMINAR. Planteo hacerlo de dos modos. -->
-
 <?php
 
 $lineaMetro1 = array(
@@ -53,30 +51,8 @@ $lineaMetro2 = array(
 );
 $lineasMetroConjuntas = array($lineaMetro1, $lineaMetro2);
 
+var_dump($lineasMetroConjuntas[0], $lineasMetroConjuntas[1]);
 
-/* 
-
-$linea_metro_1 = array(
-    "longitud" => 10,
-    "num_estaciones" => 5,
-    "paradas" => array(
-        array("Parada Amate", 50, 20, false),
-        array("Parada La plata", 30, 10, true),
-        array("Parada Cocheras", 40, 15, false)
-    )
-);
-
-$linea_metro_2 = array(
-    "longitud" => 15,
-    "num_estaciones" => 8,
-    "paradas" => array(
-        array("Parada Montequinto", 60, 25, true),
-        array("Parada Condequinto", 35, 15, false),
-        array("Parada Muylejos", 45, 20, true)
-    )
-);
-
-$lineas_metro = array($linea_metro_1, $linea_metro_2); */
 
 function obetenerLineaMetroAzar($lineasMetro)
 {
@@ -84,15 +60,61 @@ function obetenerLineaMetroAzar($lineasMetro)
     return  $lineasMetro[array_rand($lineasMetro)];
 }
 
-$resultado = obetenerLineaMetroAzar($lineasMetroConjuntas);
+$metrosAzar = obetenerLineaMetroAzar($lineasMetroConjuntas);
 
-$arrayResultante = array();
-for ($i = 0; $i < count($resultado['paradas']); $i++) {
-    $parada = array(
-        'nombre' => $resultado['paradas'][$i]['nombre'],
-        'numeroTotal' => $resultado['paradas'][$i]['personas_subidas'] +$resultado['paradas'][$i]['personas_bajadas'],
+/* A partir de una línea de metro al azar obtener 
+un array con los nombres de las paradas y el número total
+de viajeros que han hecho uso de la misma (subido o bajado en esa parada). */
 
-    );
-    $arrayResultante[] = $parada;
+function totalPasajerosyParadas($metroAzar)
+{
+    $arrayResultante = array();
+
+    foreach ($metroAzar['paradas'] as $paradaActual) {
+        // $paradaActual es el array asociativo de la parada actual en la iteración
+
+        $parada = array(
+            'nombre' => $paradaActual['nombre'],
+            'numeroTotal' => $paradaActual['personas_subidas'] + $paradaActual['personas_bajadas']
+        );
+
+        $arrayResultante[] = $parada;
+    }
+
+    return $arrayResultante;
 }
-var_dump($arrayResultante);
+
+$arrayTotalPasajerosParadas = totalPasajerosyParadas($metrosAzar);
+/* Ordenar el array anterior por números de pasajeros. */
+
+
+var_dump($arrayTotalPasajerosParadas);
+// Con esto seria de menor a mayor.
+function compararPorNumeroTotal($a, $b)
+{
+    return $a['numeroTotal'] - $b['numeroTotal'];
+}
+
+usort($arrayTotalPasajerosParadas, 'compararPorNumeroTotal');
+
+var_dump($arrayTotalPasajerosParadas);
+
+/* Contar el número de paradas de todas las líneas del metro que hacen transbordo con otra línea. */
+
+$arrayParadasConTransbordo = array();
+
+foreach ($lineasMetroConjuntas as $linea) {
+    foreach ($linea['paradas'] as $paradaActual) {
+        if ($paradaActual['transbordo'] === true) {
+            $parada = array(
+                'nombre' => $paradaActual['nombre'],
+                'transbordo' => $paradaActual['transbordo']
+            );
+            $arrayParadasConTransbordo[] = $parada;
+        }
+    }
+}
+
+// $arrayParadasConTransbordo ahora contiene todas las paradas con transbordo
+var_dump($arrayParadasConTransbordo);
+?>
