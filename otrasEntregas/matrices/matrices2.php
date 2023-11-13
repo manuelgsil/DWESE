@@ -27,7 +27,6 @@
     echo "<h2>Matriz 2:</h2>";
     mostrarMatriz($matriz2);
     echo "<br>";
-
     // Función para mostrar una matriz
     function mostrarMatriz($matriz)
     {
@@ -41,7 +40,42 @@
         }
         echo "</table>";
     }
+    function sumarMatrices($matriz1, $matriz2)
+    {
+        $filas = count($matriz1);
+        $columnas = count($matriz1[0]);
+        $matrizSuma = array_fill(0, $filas, array_fill(0, $columnas, 0));
+
+        for ($i = 0; $i < $filas; $i++) {
+            for ($j = 0; $j < $columnas; $j++) {
+                $matrizSuma[$i][$j] = $matriz1[$i][$j] + $matriz2[$i][$j];
+            }
+        }
+
+        return $matrizSuma;
+    }
+
+    function multiplicarMatrices($matriz1, $matriz2)
+    {
+        $filas = count($matriz1);
+        $columnas = count($matriz1[0]);
+        $matrizMultiplicacion = array_fill(0, $filas, array_fill(0, $columnas, 0));
+    
+        for ($i = 0; $i < $filas; $i++) {
+            for ($j = 0; $j < $columnas; $j++) {
+                $matrizMultiplicacion[$i][$j] = $matriz1[$i][$j] * $matriz2[$i][$j];
+            }
+        }
+    
+        return $matrizMultiplicacion;
+    }    
+    
+
+    
+    
+    
     ?>
+
 
     <form method="post">
         <button type="submit" name="operacion" value="suma">Sumar matrices</button>
@@ -54,37 +88,17 @@
         $tipoOperacion = $_POST["operacion"];
         switch ($tipoOperacion) {
             case 'suma':
-                $resultado = sumarMatrices($matriz1, $matriz2);;
-                echo $resultado;
+                $resultado = sumarMatrices($matriz1, $matriz2);
+                echo "<h2>Resultado de la Suma:</h2>";
+                mostrarMatriz($resultado);
                 break;
             case 'multiplicacion':
-                echo $resultado;
+                $resultado = multiplicarMatrices($matriz1, $matriz2);
+                echo "<h2>Resultado de la multiplicacion:</h2>";
+                mostrarMatriz($resultado);
                 break;
             default:
                 break;
         }
     }
-
-    function sumarMatrices($matriz1, $matriz2)
-    {
-        $filas = count($matriz1);
-        $columnas = count($matriz1[0]);
-
-        // Inicializar la nueva matriz con ceros
-        $matrizSuma = array_fill(0, $filas, array_fill(0, $columnas, 0));
-
-        // Sumar elementos de las matrices originales
-        for ($i = 0; $i < $filas; $i++) {
-            for ($j = 0; $j < $columnas; $j++) {
-                $matrizSuma[$i][$j] = $matriz1[$i][$j] + $matriz2[$i][$j];
-            }
-        }
-
-        return $matrizSuma;
-    }
-
     ?>
-
-</body>
-
-</html>
