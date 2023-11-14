@@ -15,14 +15,24 @@ N.º veces que salió cada uno de los dados en orden de mayor ocurrencia a menor
 
 <?php
 
-$limite = 12;
-$haGanado = false;
+/* $limite = 12; */
 
+/* $haGanado = false; */
+
+/* 
 for ($i = 0; $i < $limite && !$haGanado; $i++) {
     $tirada = rand(1, 6);
     $arrayTiradas[] = $tirada;
     $haGanado = count(array_unique($arrayTiradas)) == 6; // con esto controlamos que no haya mas tirada de las
+} */
+
+$arrayTiradas = array();
+
+while (count((array_unique($arrayTiradas))) != 6) {
+    $tirada = rand(1, 6);
+    $arrayTiradas[] = $tirada;
 }
+$haGanado = count($arrayTiradas) <= 12;
 
 echo "<pre>";
 print_r($arrayTiradas);
