@@ -25,31 +25,32 @@ $secuencia3 = implode(" ", $c);
 
 
 
-echo "A: $secuencia1 <br>";
-echo "B: $secuencia2  <br>";
-echo "C: $secuencia3 <br>";
+echo "<h3> A: $secuencia1 </h3>";
+echo "<h3> B: $secuencia2 </h3>";
+echo "<h3> C: $secuencia3 </h3>";
 
 function identificarBitMasComun($a, $b, $c)
 {
-    $masComun0 = 0;
-
+    $masComun = 0;
+    $contador1 = 0;
+    $sumaDeUnos = 0;
     for ($i = 0; $i < 10; $i++) {
-        $a[$i];
-        $b[$i];
-        $c[$i];
+        $sumaDeUnos += $a[$i] + $b[$i] + $c[$i];
         if ($a[$i] + $b[$i] + $c[$i] >= 2) {
             $masComun = 1;
+            $sumaDeUnos++;
         } else {
             $masComun = 0;
         }
         $arrayPosicionesMasComunes[] = $masComun;
     }
-    return $arrayPosicionesMasComunes;
+
+    $secuencia4 = implode(" ", $arrayPosicionesMasComunes);
+    echo "<h3> R: $secuencia4 </h3>";
+    echo "<h2> el bit 1 aparece $sumaDeUnos </h2>";
 }
 
-$arrayMasComun=identificarBitMasComun($a, $b, $c);
+identificarBitMasComun($a, $b, $c);
 
-var_dump($arrayMasComun);
-$secuencia4=implode(" ",$arrayMasComun);
-echo $secuencia4;
+
 ?>
