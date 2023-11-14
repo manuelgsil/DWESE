@@ -32,7 +32,6 @@ echo "<h3> C: $secuencia3 </h3>";
 function identificarBitMasComun($a, $b, $c)
 {
     $masComun = 0;
-    $contador1 = 0;
     $sumaDeUnos = 0;
     for ($i = 0; $i < 10; $i++) {
         $sumaDeUnos += $a[$i] + $b[$i] + $c[$i];
