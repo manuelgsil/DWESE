@@ -27,18 +27,26 @@ $arrayImagenesCartas = array(
 );
 $tiradaAleatoria = rand(5, 10);
 /* $arrayImagenesCartasAleatorias=array_rand($arrayImagenesCartas,$tiradaAleatoria);  Este es el problema que tenia en el examen por el cual
-    no salian las cartas. El array rand me trae CLAVES ALEATORIAS, no sus valores. */
+    no salian las cartas. El array rand me trage CLAVES ALEATORIAS, no sus valores. */
 $hasGanado = true;
 $contador = 0;
+$indicesPrevios = array();
 while ($contador < $tiradaAleatoria && $hasGanado) {
+
     echo $tirada = rand(1, 10);
-    $indiceAleatorio = rand(0, 9);
+    do {
+        $indiceAleatorio = rand(0, 9);
+    } while (in_array($indiceAleatorio + 1, $indicesPrevios));
+
+    $indicesPrevios[] = $indiceAleatorio + 1;
+
     echo "<p><img src=" . $arrayImagenesCartas[$indiceAleatorio] . " width=50></p>";
 
     if ($indiceAleatorio + 1 == $tirada) { // sumo uno al indice para que igualen respecto al array (empieza en 0) y la tirada aleatoria 
         $hasGanado = false;
         echo "Has perdido";
     }
+
     $contador++;
 }
 if ($hasGanado)
