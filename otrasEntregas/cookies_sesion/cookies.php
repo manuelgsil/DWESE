@@ -11,7 +11,7 @@ if (isset($_POST['guardar'])) {
         setcookie('usuarios', $nombresActuales, time() + 60);
     } else {
         // Si no existe la cookie 'usuarios', crearla con el nuevo nombre
-        setcookie('usuarios', $nombre, time() + 24 * 60 * 60);
+        setcookie('usuarios', $nombre, time() + 60);
     }
     echo "Cookie(s) guardada(s) correctamente.";
 }
@@ -21,14 +21,17 @@ En el protocolo HTTP, las cookies se transmiten como cadenas de texto,
  Por lo tanto, cuando se almacena un valor en una cookie, se guarda como una cadena de texto.
 
 Aunque puedas almacenar datos separados por comas u otro delimitador en una cookie para simular una estructura similar a un array,
- cuando se recupera ese valor, se recupera como una cadena y no como un array directamente.
+cuando se recupera ese valor, se recupera como una cadena y no como un array directamente.
+
 Es por eso que se usa explode para convertir esa cadena de texto en un array y
- implode para convertir un array en una cadena antes de establecer o después de leer la cookie. 
+implode para convertir un array en una cadena antes de establecer o después de leer la cookie. 
  Es una manera común de simular la funcionalidad de un array al trabajar con valores de cookies en PHP. */
 
  // Leer y mostrar todas las cookies
 if (isset($_POST['leer'])) {
+
     if (isset($_COOKIE['usuarios'])) {
+
         $nombres = $_COOKIE['usuarios'];
         $nombresArray = explode(',', $nombres);
         echo "Usuarios almacenados:<br>";
