@@ -11,7 +11,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($validacion) {
         if (isset($S_COOKIE['datosUsuario'])) {
             $datosCookie = unserialize($_COOKIE['datosUsuario']);
-            $datosSesion = [$nombreUsuario, $password];
+            if($nombreUsuario === $datosCookie[0] && $password === $datosCookie[1]){
+                echo "todoCorrecto";
+            }else{
+                echo "lachupas";
+            }
+
+          
+          
+            /*  $datosSesion = [$nombreUsuario, $password];
             $flag = true;
             for ($i = 0; $i < count($datosCookie) && $flag; $i++) {
                 $flag = $datosCookie[$i] == $datosSesion[$i];
@@ -20,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 echo "todoCorrecto";
             } else {
                 echo "lachupas";
-            }
+            } */
 
         }
     }
