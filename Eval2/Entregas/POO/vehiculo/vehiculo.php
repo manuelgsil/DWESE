@@ -6,11 +6,9 @@ class Vehiculo
     protected $plazas;
     protected $aparcado;
 
-    public function __construct($marca, $color)
+    public function __construct($plazas = 0)
     {
-        $this->marca = $marca;
-        $this->color = $color;
-        $this->plazas = 0;
+        $this->setPlazas($plazas);
         /* constructor con valor por defecto a cero para las plazas. */
         $this->aparcado = true;
     }
