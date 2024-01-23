@@ -3,23 +3,30 @@
 class Publicacion
 {
     // Propiedades
-    private $titulo;
-    private $contenido;
-    private $autor;
-    private $fechaPublicacion;
+    protected $titulo;
+    protected $contenido;
+    protected $autor;
+    protected $fechaPublicacion;
+    protected $red;
     private static $numeroPublicaciones = 0; // Atributo estático
-    private static $publicaciones = []; // No se si la implicacion de memoria es mas desafortunada que la anterior pero desde luego da mas juego
-
-    // Constructor
-    public function __construct($titulo, $contenido, $autor)
+    private static $publicaciones = []; 
+    /**
+     * Constructor de la clase Publicacion.
+     *
+     * @param string $titulo     El título de la publicación.
+     * @param string $contenido  El contenido de la publicación.
+     * @param string $autor      El autor de la publicación.
+     * @param string $red        (Opcional) La red de origen de la publicación. Por defecto, es una cadena vacía.
+     */
+    public function __construct($titulo, $contenido, $autor, $red = "")
     {
         $this->titulo = $titulo;
         $this->contenido = $contenido;
         $this->autor = $autor;
         $this->fechaPublicacion = date("Y-m-d H:i:s");
-
         // Incrementar el número total de publicaciones al crear una nueva instancia
         self::$publicaciones[] = $this;
+        $this->red = $red;
     }
 
     public static function getPublicacionesHoy()
@@ -34,6 +41,25 @@ class Publicacion
         }
 
         return $publicacionesHoy;
+    }
+
+    // Destructor
+    public function __destruct()
+    {
+        $this->eliminarDePublicaciones();
+    }
+
+    // Método privado para eliminar la instancia de self::$publicaciones
+    private function eliminarDePublicaciones()
+    {
+        $index = array_search($this, self::$publicaciones, true);
+
+        if ($index !== false) {
+            unset(self::$publicaciones[$index]);
+            /* Ya que el acceso a los arrays suele ser por foreach no es necesario reordenar las claves 
+            despues de borrar algun elemento */
+            //  self::$publicaciones = array_values(self::$publicaciones);
+        }
     }
 
     // Métodos de acceso
@@ -72,20 +98,28 @@ class Publicacion
         return $this->fechaPublicacion;
     }
 
-    // Otros métodos
+    // Creo que esto es redundante pero me parece intuitivo
     public function imprimirPublicacion()
     {
-        echo "Título: " . $this->titulo . "<br>";
-        echo "Contenido: " . $this->contenido . "<br>";
-        echo "Autor: " . $this->autor . "<br>";
-        echo "Fecha de Publicación: " . $this->fechaPublicacion . "<br>";
+        echo $this->toString();
     }
     // Método estático para obtener el número total de publicaciones
     public static function getNumeroPublicaciones()
     {
         return count(self::$publicaciones);
     }
+
+    public function toString()
+    {
+        $html = "<article class='publicacion'>";
+        $html .= "<h2>{$this->titulo}</h2>";
+        $html .= "<p class='contenido'>{$this->contenido}</p>";
+        $html .= "<h3 class='autor'>{$this->autor}</h3>";
+        $html .= "<p class='fecha'>Fecha de Publicación: {$this->fechaPublicacion}</p>";
+        /* Aqui usamos un operador ternario por si estuviera vacia la red de origen, 
+      en el caso de que lo estuviera no se crearia el elemento html correspondiente (p) */
+        $html .= !empty($this->red) ? "<p class='red'>Red de origen: {$this->red}</p>" : "";
+        $html .= "</article>";
+        return $html;
+    }
 }
-
-
-
