@@ -1,0 +1,56 @@
+body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "series videojuegos";
+  grid-template-rows: auto;
+  padding: 50px;
+  align-items: center;
+  background: linear-gradient(to top, #fcd700, #157cd6);
+}
+
+div {
+  min-width: fit-content;
+  max-width: 20%;
+  max-height: fit-content;
+  background-color: #0333;
+  border-radius: 8px;
+  border: 2px black solid;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  overflow: hidden;
+  box-shadow: 0px 10px 1px black;
+  transition: 500ms;
+  margin: 20px;
+
+  &:hover {
+    scale: 1.2;
+  }
+  & p {
+    border-top: 10px solid yellow;
+    border-bottom: 10px solid blue;
+  }
+}
+h1{
+  font-size: 20px;
+  margin: 0 auto;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  letter-spacing: 5px ;
+  text-shadow: 0 2px 5px black;
+  color: white;
+}
+
+.contenedor-series,
+.contenedor-videojuegos {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+.contenedor-series{
+  grid-area: series;
+}
+.contenedor-videojuegos {
+  grid-area: videojuegos;
+  
+}
