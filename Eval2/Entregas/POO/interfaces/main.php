@@ -122,7 +122,13 @@ $arrayMixto = array($videojuego1, $serie2, $serie1, $videojuego4, $serie3);
 
                 /* <!-- indica el videojuego tiene más horas estimadas y la serie con más temporadas.
 Muestra los datos en pantalla con toda su información (usa el método toString()). */
-
+                $serieMaxHoras = array_reduce($arraySeries, function ($maxSerie, $serie) {
+                    return $maxSerie === null || $serie->getNumeroTemporadas() > $maxSerie->getNumeroTemporadas()
+                        ? $serie
+                        : $maxSerie;
+                });
+                echo $serieMaxHoras;
+                
                 ?>
             </article>
             <article class="contenedor-videojuegos">
@@ -140,8 +146,13 @@ Muestra los datos en pantalla con toda su información (usa el método toString(
 
                 /* <!-- indica el videojuego tiene más horas estimadas y la serie con más temporadas.
 Muestra los datos en pantalla con toda su información (usa el método toString()). */
-
-              
+                // Obtén el máximo de horas estimadas
+                $videojuegoMaxHoras = array_reduce($arrayVideojuegos, function ($maxVideojuego, $videojuego) {
+                    return $maxVideojuego === null || $videojuego->getHorasEstimadas() > $maxVideojuego->getHorasEstimadas()
+                        ? $videojuego
+                        : $maxVideojuego;
+                });
+                echo $videojuegoMaxHoras;
                 ?>
 
             </article>
