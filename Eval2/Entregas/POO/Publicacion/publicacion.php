@@ -3,13 +3,8 @@
 class Publicacion
 {
     // Propiedades
-    protected $titulo;
-    protected $contenido;
-    protected $autor;
-    protected $fechaPublicacion;
-    protected $red;
     private static $numeroPublicaciones = 0; // Atributo estático
-    private static $publicaciones = []; 
+    private static $publicaciones = [];
     /**
      * Constructor de la clase Publicacion.
      *
@@ -18,15 +13,20 @@ class Publicacion
      * @param string $autor      El autor de la publicación.
      * @param string $red        (Opcional) La red de origen de la publicación. Por defecto, es una cadena vacía.
      */
-    public function __construct($titulo, $contenido, $autor, $red = "")
-    {
-        $this->titulo = $titulo;
-        $this->contenido = $contenido;
-        $this->autor = $autor;
-        $this->fechaPublicacion = date("Y-m-d H:i:s");
-        // Incrementar el número total de publicaciones al crear una nueva instancia
+    public function __construct(
+        protected $titulo,
+        protected $contenido,
+        protected $autor,
+        protected $red = "",
+        protected ?string $fechaPublicacion = null,
+    ) {
+        $this->fechaPublicacion = $fechaPublicacion ?: date("Y-m-d H:i:s");
+
+        // Incrementar el número total de publicaciones
+        self::$numeroPublicaciones++;
+
+        // Agregar la nueva publicación al array de publicaciones
         self::$publicaciones[] = $this;
-        $this->red = $red;
     }
 
     public static function getPublicacionesHoy()

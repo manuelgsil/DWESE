@@ -2,8 +2,9 @@
 
 class Persona
 {
+    /* 
     // Atributos privados
-    private $nombre;
+    private string $nombre;
     private $apellidos;
     private $edad;
 
@@ -14,6 +15,14 @@ class Persona
         $this->apellidos = $apellidos;
         $this->edad = $edad;
     }
+ */
+    public function __construct(
+        private string $nombre,
+        private string $apellidos,
+        private int $edad = 0,
+    ) {
+    }
+
 
     // Métodos de acceso (getters y setters)
     public function getNombre()
@@ -58,4 +67,3 @@ class Persona
         return $this->nombre . " " . $this->apellidos;
     }
 }
-

@@ -1,4 +1,0 @@
-manue
-maldo@ksdf.csd
-Ruta imagen:imgApache/imagenPrueba.jpg
-Ruta anterior:C:\xampp\tmp\phpC62A.tmp
