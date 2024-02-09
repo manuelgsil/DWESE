@@ -5,6 +5,7 @@ class DadoPoker
     static $figuras = ["As", "K", "Q", "J", "7", "8"];
     static $tiradas = [];
     private $figura;
+    
     public function __construct()
     {
         $this->figura = "";

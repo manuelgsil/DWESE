@@ -17,9 +17,11 @@ class Persona
     }
  */
     public function __construct(
-        private string $nombre,
-        private string $apellidos,
-        private int $edad = 0,
+        private array $datos = [
+            "nombre" => "",
+            "apellido" => "",
+            "edad" => 0
+        ]
     ) {
     }
 
@@ -27,43 +29,45 @@ class Persona
     // Métodos de acceso (getters y setters)
     public function getNombre()
     {
-        return $this->nombre;
+        return $this->datos["nombre"];
     }
 
     public function setNombre($nombre)
     {
-        $this->nombre = $nombre;
+        $this->datos["nombre"] = $nombre;
     }
 
-    public function getApellidos()
+    // Getter and setter for "apellido"
+    public function getApellido()
     {
-        return $this->apellidos;
+        return $this->datos["apellido"];
     }
 
-    public function setApellidos($apellidos)
+    public function setApellido($apellido)
     {
-        $this->apellidos = $apellidos;
+        $this->datos["apellido"] = $apellido;
     }
 
+    // Getter and setter for "edad"
     public function getEdad()
     {
-        return $this->edad;
+        return $this->datos["edad"];
     }
 
     public function setEdad($edad)
     {
-        $this->edad = $edad;
+        $this->datos["edad"] = $edad;
     }
 
     // Método para verificar si es mayor de edad
     public function mayorEdad()
     {
-        return $this->edad >= 18;
+        return $this->datos["edad"] >= 18;
     }
 
     // Método para obtener el nombre completo
     public function nombreCompleto()
     {
-        return $this->nombre . " " . $this->apellidos;
+        return $this->datos["nombre"] . " " . $this->datos["apellidos"];
     }
 }

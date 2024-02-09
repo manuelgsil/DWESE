@@ -1,6 +1,6 @@
 <?php
 require_once("persona.php");
-$persona = new Persona("Manuel", "Guillen", 30);
+$persona = new Persona([""]);
 
 echo "Nombre completo: " . $persona->nombreCompleto() . "<br>";
 echo "Edad: " . $persona->getEdad() . " años<br>";

@@ -7,6 +7,16 @@ $tirada2 = new DadoPoker("");
 $tirada3 = new DadoPoker("");
 $tirada4 = new DadoPoker("");
 $cubilete = new Cubilete();
+$arr = ["0","1","2","3","4","5"];
+var_dump($arr);
+echo count($arr);
+unset($arr[2]);
+echo count($arr);
+var_dump($arr);
+$arr = array_values($arr);
+var_dump($arr);
+ 
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,9 +29,6 @@ $cubilete = new Cubilete();
 
 <body>
 
-    <?php echo $cubilete ?>
-    <?php echo $tirada4->tirarDado()?>
-    <?php echo $tirada4->getTiradasTotales()?>
 </body>
 
 </html>
